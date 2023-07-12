@@ -23,15 +23,15 @@
           </div>
           <div class="zjreservior">
             <dv-border-box-7 class="zjreserviormessage">
+              <span style="margin-left: 5px">大坝总数</span>
+              <span class="warnmessagenum">12</span>
+            </dv-border-box-7>
+            <dv-border-box-7 class="zjreserviormessage">
               <span style="margin-left: 5px">超汛期</span>
               <span class="warnmessagenum">0</span>
             </dv-border-box-7>
             <dv-border-box-7 class="zjreserviormessage">
               <span style="margin-left: 5px">淹坝</span>
-              <span class="warnmessagenum">0</span>
-            </dv-border-box-7>
-            <dv-border-box-7 class="zjreserviormessage">
-              <span style="margin-left: 5px">水雨情</span>
               <span class="warnmessagenum">0</span>
             </dv-border-box-7>
           </div>
@@ -107,16 +107,6 @@
           <!-- 引入天气预报API -->
           <div style="width: 100%; height: 135px; color: white">
             <div id="he-plugin-standard"></div>
-            <!-- <iframe
-            scrolling="no"
-            src="https://tianqiapi.com/api.php?style=tg&skin=baidu"
-            frameborder="0"
-            city="湖州"
-            width="400"
-            color="FFFFFF"
-            height="60"
-            allowtransparency="true"
-          ></iframe> -->
           </div>
         </div>
         <div class="bg" style="width: 98%; height: 200px">

@@ -20,29 +20,20 @@
       </div>
       <div style="flex: 0 1 40%">
         <dv-border-box-13 style="width: 100%; height: 100px">
-          <el-row :gutter="24">
-            <el-col :span="8">
-              <div>
-                <el-statistic title="块石型">
-                  <template slot="formatter">{{component1}}个</template>
-                </el-statistic>
-              </div>
-            </el-col>
-            <el-col :span="8">
-              <div>
-                <el-statistic title="混合型">
-                  <template slot="formatter">{{component2}}个</template>
-                </el-statistic>
-              </div>
-            </el-col>
-            <el-col :span="8">
-              <div>
-                <el-statistic title="土质型">
-                  <template slot="formatter">{{component3}}个</template>
-                </el-statistic>
-              </div>
-            </el-col>
-          </el-row>
+          <div class="gnwreservior" style="padding-top:10px 5px;">
+            <dv-border-box-7 class="gnwreserviormessage">
+              <span style="margin-left: 5px">水库总数</span>
+              <span class="warnmessagenum">6</span>
+            </dv-border-box-7>
+            <dv-border-box-7 class="gnwreserviormessage">
+              <span style="margin-left: 5px">大型</span>
+              <span class="warnmessagenum">4</span>
+            </dv-border-box-7>
+            <dv-border-box-7 class="gnwreserviormessage">
+              <span style="margin-left: 5px">小型</span>
+              <span class="warnmessagenum">2</span>
+            </dv-border-box-7>
+          </div>
         </dv-border-box-13>
         <dv-border-box-8 style="width: 100%; height: 400px">
           <Map3d></Map3d>
@@ -163,5 +154,18 @@ export default {
 }
 .el-statistic .con {
   color: #28f7fa;
+}
+
+.gnwreservior {
+  width: 100%;
+  height: 40px;
+  padding: 15px;
+}
+.gnwreserviormessage {
+  float: left;
+  width: 28%;
+  height: 40px;
+  margin: 10px;
+  line-height: 40px;
 }
 </style>
