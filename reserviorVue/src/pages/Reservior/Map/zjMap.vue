@@ -4,7 +4,7 @@
 
 <script>
 import * as echarts from "echarts";
-import { getMap } from "../../../assets/js/maputil";
+import { getMap } from "@/assets/js/maputil";
 export default {
   data() {
     return {
@@ -22,9 +22,9 @@ export default {
       //将字符串类转换为json格式
       var zjreservoirInfo = JSON.parse(getLocalData);
       this.zjlist = zjreservoirInfo;
-       //数据
-       let ds = this.zjlist;
-      
+      //数据
+      let ds = this.zjlist;
+
       // 图标点配置信息
       let series = ds.map((item) => {
         return {
@@ -62,32 +62,23 @@ export default {
               tooltip: {
                 //仅在 options中最外层的 tooltip.trigger 为 'item'时有效
                 position: "bottom", //提示框位置,仅在 options中最外层的 tooltip.trigger 为 'item'时有效
+                backgroundColor: "",
                 formatter: function (params, ticket, callback) {
-                  var strHtml = "<div>";
-                  strHtml += '<table class="table">';
-                  strHtml +=
-                    '<tr><td colspan="4" style="text-align:center">国内外堰塞坝基本信息</td></tr>';
-                  strHtml +=
-                    "<tr><td>堰塞坝编号：</td><td>" +
-                    itemOpt.reservoirId +
-                    "</td><td>堰塞坝高度/(m)：</td><td>" +
-                    itemOpt.height +
-                    "</td></tr>";
-                  strHtml +=
-                    "<tr><td>堰塞坝长度/(m)：</td><td>" +
-                    itemOpt.longer +
-                    "</td></tr>";
-                  strHtml +=
-                    "<tr><td>堰塞坝宽度/(m)：</td><td>" +
-                    itemOpt.width +
-                    "</td></tr>";
-                  strHtml +=
-                    "<tr><td>物质组成：</td><td>" +
-                    itemOpt.component +
-                    "</td></tr>";
-                  strHtml += "</table>";
-                  strHtml += "</div>";
-                  return strHtml;
+                  var Val1 = `<img style="width:100%;height:300px;margin:auto;" src="${require("@/assets/pyimg/1.png")}">`;
+                  var Val2 = `<img style="width:100%;height:300px;margin:auto;" src="${require("@/assets/pyimg/2.png")}">`;
+                  var Val3 = `<img style="width:100%;height:300px;margin:auto;" src="${require("@/assets/pyimg/3.png")}">`;
+                  var Val4 = `<img style="width:100%;height:300px;margin:auto;" src="${require("@/assets/pyimg/4.png")}">`;
+                  var Val5 = `<img style="width:100%;height:300px;margin:auto;" src="${require("@/assets/pyimg/5.png")}">`;
+                  var Val6 = `<img style="width:100%;height:300px;margin:auto;" src="${require("@/assets/pyimg/6.png")}">`;
+
+                  console.log(params);
+                  console.log(params.dataIndex);
+                  if (params.dataIndex === 0) return Val1;
+                  if (params.dataIndex === 1) return Val2;
+                  if (params.dataIndex === 2) return Val3;
+                  if (params.dataIndex === 3) return Val4;
+                  if (params.dataIndex === 4) return Val5;
+                  if (params.dataIndex === 5) return Val6;
                 },
               },
             };
