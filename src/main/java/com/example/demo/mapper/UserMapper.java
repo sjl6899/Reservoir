@@ -9,12 +9,12 @@ import java.util.List;
 public interface UserMapper {
     @Select("select * from user")
     List<User> selectall();
-    @Insert("insert into user (name,password) value (#{name},#{password})")
+    @Insert("insert into user (username,password) value (#{username},#{password})")
     int addUser(User user);
     @Delete("delete from user where userId=#{userId}")
     int deleteUser(int userId);
-    @Update("update user set name=#{name},password=#{password} where userId=#{userId}")
-    int updateUser(String name,String password,int userId);
-    @Select("select password from user where name=#{name}")
-    String selectpw(String name);
+    @Update("update user set name=#{username},password=#{password} where userId=#{userId}")
+    int updateUser(String username,String password,int userId);
+    @Select("select password from user where username=#{username}")
+    String selectpw(String username);
 }

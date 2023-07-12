@@ -20,8 +20,8 @@ public class UserController {
         return userService.selectall();
     }
     @GetMapping("add")
-    public String addUser(String name,String password){
-        user.setName(name);
+    public String addUser(String username,String password){
+        user.setUsername(username);
         user.setPassword(password);
         int i;
         i=userService.addUser(user);
@@ -54,16 +54,18 @@ public class UserController {
             return "修改失败";
         }
     }
-    @PostMapping("login")
-    public String login(String name,String password){
-        if(password.equals(userService.selectpw(name))){
-            return "登录成功";
+    @RequestMapping("login")
+    public String login(@RequestBody User user){
+        String username=user.getUsername();
+        String password=user.getPassword();
+        if(password.equals(userService.selectpw(username))){
+            return "success";
         }
-        else if(userService.selectpw(name)==null){
-            return "用户名错误";
+        else if(userService.selectpw(username)==null){
+            return "null";
         }
         else{
-            return "密码错误";
+            return "err";
         }
     }
 }

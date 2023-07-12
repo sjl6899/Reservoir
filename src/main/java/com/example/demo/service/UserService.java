@@ -10,6 +10,6 @@ public interface UserService {
     List<User> selectall();
     int addUser(User user);
     int deleteUser(int userId);
-    int updateUser(String name,String password,int userId);
-    String selectpw(String name);
+    int updateUser(String username,String password,int userId);
+    String selectpw(String username);
 }

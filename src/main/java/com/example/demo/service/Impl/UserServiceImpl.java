@@ -28,12 +28,12 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public int updateUser(String name, String password, int userId) {
-        return userMapper.updateUser(name,password,userId);
+    public int updateUser(String username, String password, int userId) {
+        return userMapper.updateUser(username,password,userId);
     }
 
     @Override
-    public String selectpw(String name) {
-        return userMapper.selectpw(name);
+    public String selectpw(String username) {
+        return userMapper.selectpw(username);
     }
 }
