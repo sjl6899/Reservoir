@@ -143,7 +143,7 @@ export default {
               })
               .then((res) => {
                 if (res.data === 'success') {
-                  this.$router.push({ path: "/reservior" });
+                  this.$router.push({ path: "/home" });
                 }else if(res.data==='err'){
                   alert("密码错误")
                   this.loading = false;

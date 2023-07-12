@@ -3,99 +3,59 @@
     <div class="modul-box">
       <div style="flex: 0 1 30%">
         <div class="bg" title="水库概况" style="width: 98%; height: 150px">
-          <div class="title">水库概况</div>
+          <div class="zjtitle">水库概况</div>
           <dv-decoration-6
             style="width: 25%; height: 8px; text-align: center; margin: 0 auto"
           />
-          <el-row :gutter="24">
-            <el-col :span="8">
-              <div>
-                <el-statistic title="水库总数">
-                  <template slot="formatter"
-                    ><span style="font-size: 14px">8</span></template
-                  >
-                </el-statistic>
-              </div>
-            </el-col>
-            <el-col :span="8">
-              <div>
-                <el-statistic title="大型">
-                  <template slot="formatter"
-                    ><span style="font-size: 14px">5</span></template
-                  >
-                </el-statistic>
-              </div>
-            </el-col>
-            <el-col :span="8">
-              <div>
-                <el-statistic title="小型">
-                  <template slot="formatter"
-                    ><span style="font-size: 14px">10</span></template
-                  >
-                </el-statistic>
-              </div>
-            </el-col>
-          </el-row>
-          <el-row :gutter="24">
-            <el-col :span="8">
-              <div>
-                <el-statistic title="水库总数">
-                  <template slot="formatter"
-                    ><span style="font-size: 14px">8</span></template
-                  >
-                </el-statistic>
-              </div>
-            </el-col>
-            <el-col :span="8">
-              <div>
-                <el-statistic title="大型">
-                  <template slot="formatter"
-                    ><span style="font-size: 14px">5</span></template
-                  >
-                </el-statistic>
-              </div>
-            </el-col>
-            <el-col :span="8">
-              <div>
-                <el-statistic title="小型">
-                  <template slot="formatter"
-                    ><span style="font-size: 14px">10</span></template
-                  >
-                </el-statistic>
-              </div>
-            </el-col>
-          </el-row>
+          <div class="zjreservior">
+            <dv-border-box-7 class="zjreserviormessage">
+              <span style="margin-left: 5px">水库总数</span>
+              <span class="warnmessagenum">6</span>
+            </dv-border-box-7>
+            <dv-border-box-7 class="zjreserviormessage">
+              <span style="margin-left: 5px">大型</span>
+              <span class="warnmessagenum">4</span>
+            </dv-border-box-7>
+            <dv-border-box-7 class="zjreserviormessage">
+              <span style="margin-left: 5px">小型</span>
+              <span class="warnmessagenum">2</span>
+            </dv-border-box-7>
+          </div>
+          <div class="zjreservior">
+            <dv-border-box-7 class="zjreserviormessage">
+              <span style="margin-left: 5px">超汛期</span>
+              <span class="warnmessagenum">0</span>
+            </dv-border-box-7>
+            <dv-border-box-7 class="zjreserviormessage">
+              <span style="margin-left: 5px">淹坝</span>
+              <span class="warnmessagenum">0</span>
+            </dv-border-box-7>
+            <dv-border-box-7 class="zjreserviormessage">
+              <span style="margin-left: 5px">水雨情</span>
+              <span class="warnmessagenum">0</span>
+            </dv-border-box-7>
+          </div>
 
           <!-- <dv-border-box-13 style="width:100%;height:40px;">水库概况</dv-border-box-13> -->
         </div>
         <div class="bg" title="大坝概况" style="width: 98%; height: 230px">
-          <div class="title">大坝概况</div>
+          <div class="zjtitle">大坝概况</div>
           <dv-decoration-6
             style="width: 25%; height: 8px; text-align: center; margin: 0 auto"
           />
           <dv-decoration-9 class="decoration">66%</dv-decoration-9>
           <dv-decoration-9 class="decoration">50%</dv-decoration-9>
-          <el-row :gutter="24">
-            <el-col :span="12">
-              <div>
-                <el-statistic title="正常">
-                  <template slot="formatter">20个</template>
-                </el-statistic>
-              </div>
-            </el-col>
-            <el-col :span="12">
-              <div>
-                <el-statistic title="异常">
-                  <template slot="formatter"
-                    ><span style="color: #f89c55">30个</span></template
-                  >
-                </el-statistic>
-              </div>
-            </el-col>
-          </el-row>
+          <dv-border-box-7 class="bammessage">
+              <span style="margin-left: 5px">正常</span>
+              <span class="warnmessagenum">4</span>
+            </dv-border-box-7>
+            <dv-border-box-7 class="bammessage">
+              <span style="margin-left: 5px">异常</span>
+              <span class="warnmessagenum">2</span>
+            </dv-border-box-7>
         </div>
         <div class="bg" style="width: 98%; height: calc(95vh - 435px)">
-          <div class="title">水库超汛期</div>
+          <div class="zjtitle">水库超汛期</div>
           <dv-decoration-6
             style="width: 25%; height: 8px; text-align: center; margin: 0 auto"
           />
@@ -110,7 +70,7 @@
           <zjMap></zjMap>
         </div>
         <div class="bg" style="width: 98%; height: calc(95vh - 500px)">
-          <div class="title">报警信息</div>
+          <div class="zjtitle">报警信息</div>
           <dv-decoration-6
             style="width: 20%; height: 8px; text-align: center; margin: 0 auto"
           />
@@ -140,7 +100,7 @@
       </div>
       <div style="flex: 0 1 30%">
         <div class="bg" style="width: 98%; height: 200px">
-          <div class="title">天气预报</div>
+          <div class="zjtitle">天气预报</div>
           <dv-decoration-6
             style="width: 25%; height: 8px; text-align: center; margin: 0 auto"
           />
@@ -160,13 +120,13 @@
           </div>
         </div>
         <div class="bg" style="width: 98%; height: 200px">
-          <div class="title">水位预测</div>
+          <div class="zjtitle">水位预测</div>
           <dv-decoration-6
             style="width: 25%; height: 8px; text-align: center; margin: 0 auto"
           />
         </div>
         <div class="bg" style="width: 98%; height: calc(95vh - 400px)">
-          <div class="title">新闻公告</div>
+          <div class="zjtitle">新闻公告</div>
           <dv-decoration-6
             style="width: 25%; height: 8px; text-align: center; margin: 0 auto"
           />
@@ -261,7 +221,7 @@ export default {
         evenRowBGC: "",
         hoverPause: true,
       },
-      zjlist:[],
+      zjlist: [],
     };
   },
   mounted() {
@@ -293,16 +253,13 @@ export default {
       // var zjreservoirInfo = JSON.parse(getLocalData);
       // console.log(zjreservoirInfo);
       // this.zjlist=zjreservoirInfo
-      
       // for (var i = 0; i < reservoirInfo.length; i++) {
-      
       //   //存放maxhg表数据
       //   var maxhginfo = {
       //     name: reservoirInfo[i].name,
       //     value: reservoirInfo[i].maxhg,
       //   };
       //   this.maxhg.data[i] = maxhginfo;
-       
       // }
       // this.maxhg = { ...this.maxhg };
     },
@@ -327,7 +284,7 @@ export default {
   color: #28f7fa;
 }
 
-.title {
+.zjtitle {
   text-align: center;
   padding: 5px 10px 0 10px;
   font-size: 14px;
@@ -339,6 +296,26 @@ export default {
   height: 120px;
   float: left;
   margin: 15px 5% 0 5%;
+}
+
+.zjreservior {
+  width: 100%;
+  height: 40px;
+}
+.zjreserviormessage {
+  float: left;
+  width: 28%;
+  height: 40px;
+  margin: 10px;
+  line-height: 40px;
+}
+
+.bammessage{
+  float: left;
+  width: 30%;
+  height: 40px;
+  margin: 10px 40px;
+  line-height: 40px;
 }
 
 .warnmessage {
