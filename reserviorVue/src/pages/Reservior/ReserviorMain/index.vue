@@ -43,16 +43,16 @@
           <dv-decoration-6
             style="width: 25%; height: 8px; text-align: center; margin: 0 auto"
           />
-          <dv-decoration-9 class="decoration">66%</dv-decoration-9>
-          <dv-decoration-9 class="decoration">50%</dv-decoration-9>
+          <dv-decoration-9 class="decoration">67%</dv-decoration-9>
+          <dv-decoration-9 class="decoration">33%</dv-decoration-9>
           <dv-border-box-7 class="bammessage">
-              <span style="margin-left: 5px">正常</span>
-              <span class="warnmessagenum">4</span>
-            </dv-border-box-7>
-            <dv-border-box-7 class="bammessage">
-              <span style="margin-left: 5px">异常</span>
-              <span class="warnmessagenum">2</span>
-            </dv-border-box-7>
+            <span style="margin-left: 5px">正常</span>
+            <span class="warnmessagenum">4</span>
+          </dv-border-box-7>
+          <dv-border-box-7 class="bammessage">
+            <span style="margin-left: 5px">异常</span>
+            <span class="warnmessagenum">2</span>
+          </dv-border-box-7>
         </div>
         <div class="bg" style="width: 98%; height: calc(95vh - 435px)">
           <div class="zjtitle">水库超汛期</div>
@@ -75,21 +75,8 @@
             style="width: 20%; height: 8px; text-align: center; margin: 0 auto"
           />
           <div style="width: 100%; height: calc(95vh - 520px)">
-            <div style="width: 25%; height: calc(95vh - 520px); float: left">
-              <dv-border-box-7 class="warnmessage">
-                <span style="margin-left: 5px">水雨情</span>
-                <span class="warnmessagenum">2</span>
-              </dv-border-box-7>
-              <dv-border-box-7 class="warnmessage">
-                <span style="margin-left: 5px">大坝安全</span>
-                <span class="warnmessagenum">1</span>
-              </dv-border-box-7>
-              <dv-border-box-7 class="warnmessage">
-                <span style="margin-left: 5px">流量</span>
-                <span class="warnmessagenum">0</span>
-              </dv-border-box-7>
-            </div>
-            <div style="width: 75%; height: calc(95vh - 520px); float: right">
+            
+            <div style="width: 98%; height: calc(95vh - 520px); float: right">
               <dv-scroll-board
                 :config="warnmessage"
                 style="width: 100%; height: calc(95vh - 540px)"
@@ -109,13 +96,36 @@
             <div id="he-plugin-standard"></div>
           </div>
         </div>
-        <div class="bg" style="width: 98%; height: 200px">
-          <div class="zjtitle">水位预测</div>
+        <div class="bg" style="width: 98%; height: 80px">
+          <div style="width: 100%; height: 50px; float: left">
+              <dv-border-box-7 class="warnmessage">
+                <span style="margin-left: 5px">水雨情</span>
+                <span class="warnmessagenum">2</span>
+              </dv-border-box-7>
+              <dv-border-box-7 class="warnmessage">
+                <span style="margin-left: 5px">大坝安全</span>
+                <span class="warnmessagenum">1</span>
+              </dv-border-box-7>
+              <dv-border-box-7 class="warnmessage">
+                <span style="margin-left: 5px">流量</span>
+                <span class="warnmessagenum">0</span>
+              </dv-border-box-7>
+            </div>
+        </div>
+        <div class="bg" style="width: 98%; height: calc(95vh - 200px)">
+          <div class="zjtitle">水位模型训练</div>
           <dv-decoration-6
             style="width: 25%; height: 8px; text-align: center; margin: 0 auto"
           />
+          <!--动态将图片轮播图的容器高度设置成与图片一致-->
+          <el-carousel indicator-position="outside" class="flow">
+            <el-carousel-item v-for="(img, index) in imgList" :key="index">
+              <img :src="img.url" width="100%" height="100%" style="border-radius: 0;" />
+            </el-carousel-item>
+          </el-carousel>
+          
         </div>
-        <div class="bg" style="width: 98%; height: calc(95vh - 400px)">
+        <!-- <div class="bg" style="width: 98%; height: calc(95vh - 400px)">
           <div class="zjtitle">新闻公告</div>
           <dv-decoration-6
             style="width: 25%; height: 8px; text-align: center; margin: 0 auto"
@@ -124,7 +134,7 @@
             :config="news"
             style="width: 95%; height: calc(95vh - 500px); margin: auto"
           />
-        </div>
+        </div> -->
       </div>
     </div>
   </div>
@@ -142,20 +152,16 @@ export default {
       floodseason: {
         header: [
           '<span style="color:#28f7fa;">水库名称</span>',
-          '<span style="color:#28f7fa;">当前水位</span>',
-          '<span style="color:#28f7fa;">超汛期</span>',
+          '<span style="color:#28f7fa;">当前水位(m)</span>',
+          '<span style="color:#28f7fa;">超汛期(m)</span>',
         ],
         data: [
-          ["行1列1", "行1列2", "行1列3"],
-          ["行2列1", "行2列2", "行2列3"],
-          ["行3列1", "行3列2", "行3列3"],
-          ["行4列1", "行4列2", "行4列3"],
-          ["行5列1", "行5列2", "行5列3"],
-          ["行6列1", "行6列2", "行6列3"],
-          ["行7列1", "行7列2", "行7列3"],
-          ["行8列1", "行8列2", "行8列3"],
-          ["行9列1", "行9列2", "行9列3"],
-          ["行10列1", "行10列2", "行10列3"],
+          ["余杭水库", "35", "——"],
+          ["千岛湖水库", "26", "——"],
+          ["牛头山水库", "275", "——"],
+          ["老虎潭水库", "54", "——"],
+          ["长潭水库", "200", "——"],
+          ["珊溪水库", "30", "——"],
         ],
         indexHeader: '<span style="color:#28f7fa;">排名</span>',
         index: true,
@@ -166,41 +172,22 @@ export default {
         evenRowBGC: "",
         hoverPause: true,
       },
-      news: {
-        data: [
-          ["行1列1", "行1列2", "行1列3"],
-          ["行2列1", "行2列2", "行2列3"],
-          ["行3列1", "行3列2", "行3列3"],
-          ["行4列1", "行4列2", "行4列3"],
-          ["行5列1", "行5列2", "行5列3"],
-          ["行6列1", "行6列2", "行6列3"],
-          ["行7列1", "行7列2", "行7列3"],
-          ["行8列1", "行8列2", "行8列3"],
-          ["行9列1", "行9列2", "行9列3"],
-          ["行10列1", "行10列2", "行10列3"],
-        ],
-        headerBGC: "",
-        oddRowBGC: "",
-        evenRowBGC: "",
-        hoverPause: true,
-      },
       warnmessage: {
-        header: [
-          '<span style="color:#28f7fa;">水库名称</span>',
-          '<span style="color:#28f7fa;">当前水位</span>',
-          '<span style="color:#28f7fa;">超汛期</span>',
-        ],
+        // header: [
+        //   '<span style="color:#28f7fa;">水库名称</span>',
+        //   '<span style="color:#28f7fa;">当前水位</span>',
+        //   '<span style="color:#28f7fa;">超汛期</span>',
+        // ],
         data: [
-          ["行1列1", "行1列2", "行1列3"],
-          ["行2列1", "行2列2", "行2列3"],
-          ["行3列1", "行3列2", "行3列3"],
-          ["行4列1", "行4列2", "行4列3"],
-          ["行5列1", "行5列2", "行5列3"],
-          ["行6列1", "行6列2", "行6列3"],
-          ["行7列1", "行7列2", "行7列3"],
-          ["行8列1", "行8列2", "行8列3"],
-          ["行9列1", "行9列2", "行9列3"],
-          ["行10列1", "行10列2", "行10列3"],
+          ["珊溪水库", "2018-10-15 10:00:00", "日降水量："],
+          ["牛头山水库", "行2列2", "日降水量："],
+          ["千岛湖水库", "行3列2", "日降水量："],
+          ["长潭水库", "行4列2", "日降水量："],
+          ["牛头山水库", "行5列2", "日降水量："],
+          ["余杭水库", "行6列2", "日降水量："],
+          ["老虎潭水库", "行7列2", "日降水量："],
+          ["珊溪水库", "行8列2", "日降水量："],
+          ["千岛湖水库", "行9列2", "日降水量："],
         ],
         //indexHeader: '<span style="color:#28f7fa;">排名</span>',
         index: true,
@@ -212,6 +199,26 @@ export default {
         hoverPause: true,
       },
       zjlist: [],
+      imgList: [
+        {
+          url: require("@/assets/pyimg/1.png"), //url: '../assets/lake.jpg'
+        },
+        {
+          url: require("@/assets/pyimg/2.png"), //url: '../assets/build.jpg'
+        },
+        {
+          url: require("@/assets/pyimg/3.png"), //url: '../assets/road.jpg'
+        },
+        {
+          url: require("@/assets/pyimg/4.png"), //url: '../assets/sea.jpg'
+        },
+        {
+          url: require("@/assets/pyimg/3.png"), //url: '../assets/road.jpg'
+        },
+        {
+          url: require("@/assets/pyimg/4.png"), //url: '../assets/sea.jpg'
+        },
+      ],
     };
   },
   mounted() {
@@ -236,23 +243,7 @@ export default {
     document.getElementsByTagName("head")[0].appendChild(script);
   },
   methods: {
-    init() {
-      // //读取本地的字符串数据
-      // var getLocalData = localStorage.getItem("zjreservoirInfo");
-      // //将字符串类转换为json格式
-      // var zjreservoirInfo = JSON.parse(getLocalData);
-      // console.log(zjreservoirInfo);
-      // this.zjlist=zjreservoirInfo
-      // for (var i = 0; i < reservoirInfo.length; i++) {
-      //   //存放maxhg表数据
-      //   var maxhginfo = {
-      //     name: reservoirInfo[i].name,
-      //     value: reservoirInfo[i].maxhg,
-      //   };
-      //   this.maxhg.data[i] = maxhginfo;
-      // }
-      // this.maxhg = { ...this.maxhg };
-    },
+    init() {},
   },
 };
 </script>
@@ -300,7 +291,7 @@ export default {
   line-height: 40px;
 }
 
-.bammessage{
+.bammessage {
   float: left;
   width: 30%;
   height: 40px;
@@ -309,9 +300,10 @@ export default {
 }
 
 .warnmessage {
-  width: 100%;
+  float: left;
+  width: 28%;
   height: 40px;
-  margin: 10px;
+  margin: 15px 11px;
   line-height: 40px;
 }
 
@@ -324,5 +316,14 @@ export default {
 
 #mobile05 {
   color: aliceblue;
+}
+
+/* 走马灯 */
+.flow{
+  padding: 10px;
+}
+
+.img{
+  border-radius: 0;
 }
 </style>

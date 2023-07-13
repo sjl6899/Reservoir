@@ -168,4 +168,11 @@ export default {
   margin: 10px;
   line-height: 40px;
 }
+
+.warnmessagenum {
+  margin-right: 15px;
+  color: #28f7fa;
+  float: right;
+  font-size: 20px;
+}
 </style>
