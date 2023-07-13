@@ -75,7 +75,6 @@
             style="width: 20%; height: 8px; text-align: center; margin: 0 auto"
           />
           <div style="width: 100%; height: calc(95vh - 520px)">
-            
             <div style="width: 98%; height: calc(95vh - 520px); float: right">
               <dv-scroll-board
                 :config="warnmessage"
@@ -98,43 +97,39 @@
         </div>
         <div class="bg" style="width: 98%; height: 80px">
           <div style="width: 100%; height: 50px; float: left">
-              <dv-border-box-7 class="warnmessage">
-                <span style="margin-left: 5px">水雨情</span>
-                <span class="warnmessagenum">2</span>
-              </dv-border-box-7>
-              <dv-border-box-7 class="warnmessage">
-                <span style="margin-left: 5px">大坝安全</span>
-                <span class="warnmessagenum">1</span>
-              </dv-border-box-7>
-              <dv-border-box-7 class="warnmessage">
-                <span style="margin-left: 5px">流量</span>
-                <span class="warnmessagenum">0</span>
-              </dv-border-box-7>
-            </div>
+            <dv-border-box-7 class="warnmessage">
+              <span style="margin-left: 5px">水雨情</span>
+              <span class="warnmessagenum">2</span>
+            </dv-border-box-7>
+            <dv-border-box-7 class="warnmessage">
+              <span style="margin-left: 5px">大坝安全</span>
+              <span class="warnmessagenum">1</span>
+            </dv-border-box-7>
+            <dv-border-box-7 class="warnmessage">
+              <span style="margin-left: 5px">流量</span>
+              <span class="warnmessagenum">0</span>
+            </dv-border-box-7>
+          </div>
         </div>
+        <!-- 视频监测 -->
         <div class="bg" style="width: 98%; height: calc(95vh - 200px)">
-          <div class="zjtitle">水位模型训练</div>
+          <div class="zjtitle">视频监测</div>
           <dv-decoration-6
             style="width: 25%; height: 8px; text-align: center; margin: 0 auto"
           />
           <!--动态将图片轮播图的容器高度设置成与图片一致-->
-          <el-carousel indicator-position="outside" class="flow">
+          <!-- <el-carousel indicator-position="outside" class="flow">
             <el-carousel-item v-for="(img, index) in imgList" :key="index">
               <img :src="img.url" width="100%" height="100%" style="border-radius: 0;" />
             </el-carousel-item>
-          </el-carousel>
-          
+          </el-carousel> -->
+          <video-player
+            class="video-player vjs-custom-skin"
+            ref="videoPlayer"
+            :playsinline="true"
+            :options="playerOptions"
+          ></video-player>
         </div>
-        <!-- <div class="bg" style="width: 98%; height: calc(95vh - 400px)">
-          <div class="zjtitle">新闻公告</div>
-          <dv-decoration-6
-            style="width: 25%; height: 8px; text-align: center; margin: 0 auto"
-          />
-          <dv-scroll-board
-            :config="news"
-            style="width: 95%; height: calc(95vh - 500px); margin: auto"
-          />
-        </div> -->
       </div>
     </div>
   </div>
@@ -149,6 +144,31 @@ export default {
   },
   data() {
     return {
+      playerOptions: {
+        playbackRates: [0.7, 1.0, 1.5, 2.0], //播放速度
+        autoplay: true, //如果true,浏览器准备好时开始回放。
+        muted: true, // 默认情况下将会消除任何音频。
+        loop: true, // 导致视频一结束就重新开始。
+        preload: "auto", // 建议浏览器在<video>加载元素后是否应该开始下载视频数据。auto浏览器选择最佳行为,立即开始加载视频（如果浏览器支持）
+        language: "zh-CN",
+        aspectRatio: "4:3", // 将播放器置于流畅模式，并在计算播放器的动态大小时使用该值。值应该代表一个比例 - 用冒号分隔的两个数字（例如"16:9"或"4:3"）
+        fluid: true, // 当true时，Video.js player将拥有流体大小。换句话说，它将按比例缩放以适应其容器。
+        sources: [
+          {
+            type: "video/mp4", //这里的种类支持很多种：基本视频格式、直播、流媒体等，具体可以参看git网址项目
+            src: require("../../../assets/video/zjreservior.mp4"), //url地址
+          },
+        ],
+        poster: "../../../assets/background.jpg", //你的封面地址
+        // width: document.documentElement.clientWidth, //播放器宽度
+        notSupportedMessage: "此视频暂无法播放，请稍后再试", //允许覆盖Video.js无法播放媒体源时显示的默认信息。
+        controlBar: {
+          timeDivider: true,
+          durationDisplay: true,
+          remainingTimeDisplay: false,
+          fullscreenToggle: true, //全屏按钮
+        },
+      },
       floodseason: {
         header: [
           '<span style="color:#28f7fa;">水库名称</span>',
@@ -173,11 +193,6 @@ export default {
         hoverPause: true,
       },
       warnmessage: {
-        // header: [
-        //   '<span style="color:#28f7fa;">水库名称</span>',
-        //   '<span style="color:#28f7fa;">当前水位</span>',
-        //   '<span style="color:#28f7fa;">超汛期</span>',
-        // ],
         data: [
           ["珊溪水库", "2017-10-15 10:00:00", "日降水量：200"],
           ["牛头山水库", "2017-11-11 11:12:00", "日降水量：100"],
@@ -189,7 +204,6 @@ export default {
           ["珊溪水库", "2019-9-05 12:35:00", "日降水量：123"],
           ["千岛湖水库", "2019-11-11 5:00:00", "日降水量：23"],
         ],
-        //indexHeader: '<span style="color:#28f7fa;">排名</span>',
         index: true,
         columnWidth: [50],
         align: ["center"],
@@ -201,22 +215,22 @@ export default {
       zjlist: [],
       imgList: [
         {
-          url: require("@/assets/pyimg/flow/yuhang.png"), //url: '../assets/lake.jpg'
+          url: require("@/assets/pyimg/flow/yuhang.png"), 
         },
         {
-          url: require("@/assets/pyimg/flow/qiandaohu.png"), //url: '../assets/build.jpg'
+          url: require("@/assets/pyimg/flow/qiandaohu.png"), 
         },
         {
-          url: require("@/assets/pyimg/flow/niutoushan.png"), //url: '../assets/road.jpg'
+          url: require("@/assets/pyimg/flow/niutoushan.png"), 
         },
         {
-          url: require("@/assets/pyimg/flow/laohutan.png"), //url: '../assets/sea.jpg'
+          url: require("@/assets/pyimg/flow/laohutan.png"), 
         },
         {
-          url: require("@/assets/pyimg/flow/changtan.png"), //url: '../assets/road.jpg'
+          url: require("@/assets/pyimg/flow/changtan.png"), 
         },
         {
-          url: require("@/assets/pyimg/flow/shanxi.png"), //url: '../assets/sea.jpg'
+          url: require("@/assets/pyimg/flow/shanxi.png"),
         },
       ],
     };
@@ -252,6 +266,15 @@ export default {
 .bg {
   background-color: rgba(11, 36, 64, 0.4);
   margin: 5px;
+}
+.video-js {
+  background-color: "";
+}
+
+.video-js .vjs-icon-placeholder {
+    width: 100%;
+    height: 100%;
+    display: block;
 }
 
 .el-row {
@@ -319,11 +342,11 @@ export default {
 }
 
 /* 走马灯 */
-.flow{
+.flow {
   padding: 10px;
 }
 
-.img{
+.img {
   border-radius: 0;
 }
 </style>

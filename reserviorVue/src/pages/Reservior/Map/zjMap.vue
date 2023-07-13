@@ -70,9 +70,6 @@ export default {
                   var Val4 = `<img style="width:100%;height:300px;margin:auto;" src="${require("@/assets/pyimg/map/laohutan.png")}">`;
                   var Val5 = `<img style="width:100%;height:300px;margin:auto;" src="${require("@/assets/pyimg/map/changtan.png")}">`;
                   var Val6 = `<img style="width:100%;height:300px;margin:auto;" src="${require("@/assets/pyimg/map/shanxi.png")}">`;
-
-                  console.log(params);
-                  console.log(params.dataIndex);
                   if (params.dataIndex === 0) return Val1;
                   if (params.dataIndex === 1) return Val2;
                   if (params.dataIndex === 2) return Val3;
@@ -202,8 +199,6 @@ export default {
         },
         series: series,
       };
-
-      console.log(getMap());
       // 获得数据
       const [mapName, mapJson] = getMap();
       option.geo.map = mapName;

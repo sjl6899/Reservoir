@@ -45,7 +45,7 @@ export default {
         };
         this.infolist.data[i] = areaginfo;
       }
-      //console.log(this.infolist.data);
+
       var myChart = echarts.init(this.$refs.chart);
       var option;
 
@@ -78,7 +78,6 @@ export default {
         tooltip: {
           trigger: "item",
           formatter: (params) => {
-            console.log(params);
             return `${params.marker}${params.data.country+'-'+params.data.name}`;
           },
         },

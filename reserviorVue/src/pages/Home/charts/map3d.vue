@@ -10,12 +10,6 @@ export default {
     return {
       //国家水坝数据
       list: [
-        // {
-        //   name: "中国-石板沟",
-        //   point: [116.457, 40.2527],
-        //   itemStyleColor: "#f00",
-        //   labelText: "中国•3000",
-        // },
       ],
     };
   },
@@ -28,15 +22,12 @@ export default {
       var option;
       //读取本地的字符串数据
       var getLocalData = localStorage.getItem("reservoirInfo");
-      //显示类型 这个时候是字符串类型
-      console.log(typeof getLocalData);
       //将字符串类转换为json格式
       this.list = JSON.parse(getLocalData);
       //从jsonObj中提取我们想要的数据
-      //console.log(this.list);
       //数据
       let ds = this.list;
-      //console.log(ds.long);
+
       //指定配置项
       option = {
         backgroundColor: "",
@@ -164,7 +155,7 @@ export default {
             autoRotate: true, // 是否开启视角绕物体的自动旋转查看
             autoRotateSpeed: 7, //物体自转的速度,单位为角度 / 秒，默认为10 ，也就是36秒转一圈。
             autoRotateAfterStill: 4, // 在鼠标静止操作后恢复自动旋转的时间间隔,默认 3s
-            rotateSensitivity: 2, // 旋转操作的灵敏度，值越大越灵敏.设置为0后无法旋转。[1, 0]只能横向旋转.[0, 1]只能纵向旋转
+            rotateSensitivity: 5, // 旋转操作的灵敏度，值越大越灵敏.设置为0后无法旋转。[1, 0]只能横向旋转.[0, 1]只能纵向旋转
             targetCoord: [116.457, 40.2527], // 定位到北京
           },
         },

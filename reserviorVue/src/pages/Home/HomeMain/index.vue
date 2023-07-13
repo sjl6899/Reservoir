@@ -96,8 +96,6 @@ export default {
       var getLocalData = localStorage.getItem("reservoirInfo");
       //将字符串类转换为json格式
       var reservoirInfo = JSON.parse(getLocalData);
-      console.log(reservoirInfo);
-
       for (var i = 0; i < reservoirInfo.length; i++) {
         if(reservoirInfo[i].component==='块石型'){
           this.component1++
