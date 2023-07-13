@@ -71,12 +71,12 @@
   </div>
 </template>
 <script>
-import { validUsername } from "@/utils/validate";
+//import { validUsername } from "@/utils/validate";
 export default {
   name: "Login",
   data() {
     const validateUsername = (rule, value, callback) => {
-      if (!validUsername(value)) {
+      if (!this.valid_username.includes(value)) {
         callback(new Error("用户名不存在！"));
       } else {
         callback();
@@ -90,6 +90,7 @@ export default {
       }
     };
     return {
+      valid_username: [],
       // 头像状态
       TxStatus: true,
       loginForm: {
@@ -118,7 +119,19 @@ export default {
       immediate: true,
     },
   },
+  mounted(){
+    this.validUsername();
+  },
   methods: {
+    validUsername() {
+      var username = [];
+      this.$axios.post("http://localhost:8089/user/select").then((res) => {
+        username = res.data;
+        for (var i = 0; i < username.length; i++) {
+          this.valid_username[i] = username[i].username;
+        }
+      });
+    },
     showPwd() {
       if (this.passwordType === "password") {
         this.passwordType = "";
@@ -142,16 +155,16 @@ export default {
                 password: this.loginForm.password,
               })
               .then((res) => {
-                if (res.data === 'success') {
+                if (res.data === "success") {
                   this.$router.push({ path: "/home" });
-                }else if(res.data==='err'){
-                  alert("密码错误")
+                } else if (res.data === "err") {
+                  alert("密码错误");
                   this.loading = false;
-                }else{
-                  alert("用户不存在")
+                } else {
+                  alert("用户不存在");
                   this.loading = false;
                 }
-              })
+              });
           }, 500);
         } else {
           console.log("error submit!!");
@@ -177,7 +190,7 @@ export default {
   z-index: -1;
   background-repeat: no-repeat;
 }
-.el-loading-mask{
+.el-loading-mask {
   width: 100%;
   min-height: calc(98vh);
 }

@@ -220,7 +220,7 @@ export default {
 
         const [mapName, mapJson] = getMap(name);
         // 修改option的配置，可以继续自定义
-        option.geo.zoom = 0.8;
+        option.geo.zoom = 1;
         // 这里必须要和注册地图时的名字一致
         option.geo.map = mapName;
 
