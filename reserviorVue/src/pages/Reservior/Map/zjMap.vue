@@ -61,7 +61,7 @@ export default {
               },
               tooltip: {
                 //仅在 options中最外层的 tooltip.trigger 为 'item'时有效
-                position: {left: 30, top: 50}, //提示框位置,仅在 options中最外层的 tooltip.trigger 为 'item'时有效
+                position: { left: 30, top: 50 }, //提示框位置,仅在 options中最外层的 tooltip.trigger 为 'item'时有效
                 backgroundColor: "",
                 formatter: function (params, ticket, callback) {
                   var Val1 = `<img style="width:100%;height:300px;margin:auto;" src="${require("@/assets/pyimg/1.png")}">`;
@@ -252,5 +252,9 @@ export default {
 .map {
   width: 100%;
   height: 100%;
+}
+
+img {
+  border-radius: 0;
 }
 </style>
