@@ -59,12 +59,10 @@
 
 <script>
 import Map3d from "../charts/map3d.vue";
-import ComponentInfo from "../charts/componentinfo.vue";
 export default {
   name: "HomeMain",
   components: {
     Map3d,
-    ComponentInfo,
   },
   data() {
     return {

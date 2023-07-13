@@ -40,6 +40,8 @@ export default {
         var areaginfo = {
           value: [reservoirInfo[i].height, reservoirInfo[i].area],
           stability: reservoirInfo[i].stability,
+          country:reservoirInfo[i].country,
+          name:reservoirInfo[i].name
         };
         this.infolist.data[i] = areaginfo;
       }
@@ -73,6 +75,13 @@ export default {
           y2: 30,
           borderWidth: 1,
         },
+        tooltip: {
+          trigger: "item",
+          formatter: (params) => {
+            console.log(params);
+            return `${params.marker}${params.data.country+'-'+params.data.name}`;
+          },
+        },
         series: [
           {
             symbolSize: 15,
@@ -89,18 +98,8 @@ export default {
                 },
               },
             },
-
+            tooltip: {},
           },
-          // {
-          //   type: "line",
-          //   data:function (params) {
-          //     console.log(params);
-          //         if (params.data.stability === "稳定") {
-          //           return params.data.value;
-          //         }
-          //       } ,
-          //   connectNulls: true,
-          // },
         ],
       };
 

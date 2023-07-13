@@ -64,12 +64,12 @@ export default {
                 position: { left: 30, top: 50 }, //提示框位置,仅在 options中最外层的 tooltip.trigger 为 'item'时有效
                 backgroundColor: "",
                 formatter: function (params, ticket, callback) {
-                  var Val1 = `<img style="width:100%;height:300px;margin:auto;" src="${require("@/assets/pyimg/1.png")}">`;
-                  var Val2 = `<img style="width:100%;height:300px;margin:auto;" src="${require("@/assets/pyimg/2.png")}">`;
-                  var Val3 = `<img style="width:100%;height:300px;margin:auto;" src="${require("@/assets/pyimg/3.png")}">`;
-                  var Val4 = `<img style="width:100%;height:300px;margin:auto;" src="${require("@/assets/pyimg/4.png")}">`;
-                  var Val5 = `<img style="width:100%;height:300px;margin:auto;" src="${require("@/assets/pyimg/5.png")}">`;
-                  var Val6 = `<img style="width:100%;height:300px;margin:auto;" src="${require("@/assets/pyimg/6.png")}">`;
+                  var Val1 = `<img style="width:100%;height:300px;margin:auto;" src="${require("@/assets/pyimg/map/yuhang.png")}">`;
+                  var Val2 = `<img style="width:100%;height:300px;margin:auto;" src="${require("@/assets/pyimg/map/qiandaohu.png")}">`;
+                  var Val3 = `<img style="width:100%;height:300px;margin:auto;" src="${require("@/assets/pyimg/map/niutoushan.png")}">`;
+                  var Val4 = `<img style="width:100%;height:300px;margin:auto;" src="${require("@/assets/pyimg/map/laohutan.png")}">`;
+                  var Val5 = `<img style="width:100%;height:300px;margin:auto;" src="${require("@/assets/pyimg/map/changtan.png")}">`;
+                  var Val6 = `<img style="width:100%;height:300px;margin:auto;" src="${require("@/assets/pyimg/map/shanxi.png")}">`;
 
                   console.log(params);
                   console.log(params.dataIndex);

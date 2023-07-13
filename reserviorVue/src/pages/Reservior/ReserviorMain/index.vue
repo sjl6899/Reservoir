@@ -156,12 +156,12 @@ export default {
           '<span style="color:#28f7fa;">超汛期(m)</span>',
         ],
         data: [
-          ["余杭水库", "35", "——"],
-          ["千岛湖水库", "26", "——"],
-          ["牛头山水库", "275", "——"],
-          ["老虎潭水库", "54", "——"],
-          ["长潭水库", "200", "——"],
-          ["珊溪水库", "30", "——"],
+          ["余杭水库", "46.2", "46.5"],
+          ["千岛湖水库", "31.5", "32"],
+          ["牛头山水库", "136.3", "137"],
+          ["老虎潭水库", "83.5", "84"],
+          ["长潭水库", "236.3", "236.4"],
+          ["珊溪水库", "236.8", "237"],
         ],
         indexHeader: '<span style="color:#28f7fa;">排名</span>',
         index: true,
@@ -201,22 +201,22 @@ export default {
       zjlist: [],
       imgList: [
         {
-          url: require("@/assets/pyimg/1.png"), //url: '../assets/lake.jpg'
+          url: require("@/assets/pyimg/flow/yuhang.png"), //url: '../assets/lake.jpg'
         },
         {
-          url: require("@/assets/pyimg/2.png"), //url: '../assets/build.jpg'
+          url: require("@/assets/pyimg/flow/qiandaohu.png"), //url: '../assets/build.jpg'
         },
         {
-          url: require("@/assets/pyimg/3.png"), //url: '../assets/road.jpg'
+          url: require("@/assets/pyimg/flow/niutoushan.png"), //url: '../assets/road.jpg'
         },
         {
-          url: require("@/assets/pyimg/4.png"), //url: '../assets/sea.jpg'
+          url: require("@/assets/pyimg/flow/laohutan.png"), //url: '../assets/sea.jpg'
         },
         {
-          url: require("@/assets/pyimg/3.png"), //url: '../assets/road.jpg'
+          url: require("@/assets/pyimg/flow/changtan.png"), //url: '../assets/road.jpg'
         },
         {
-          url: require("@/assets/pyimg/4.png"), //url: '../assets/sea.jpg'
+          url: require("@/assets/pyimg/flow/shanxi.png"), //url: '../assets/sea.jpg'
         },
       ],
     };
