@@ -268,7 +268,7 @@ export default {
   margin: 5px;
 }
 .video-js {
-  background-color: "";
+  background-color: "" !important;
 }
 
 .video-js .vjs-icon-placeholder {

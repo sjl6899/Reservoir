@@ -154,8 +154,8 @@ export default {
           viewControl: {
             autoRotate: true, // 是否开启视角绕物体的自动旋转查看
             autoRotateSpeed: 7, //物体自转的速度,单位为角度 / 秒，默认为10 ，也就是36秒转一圈。
-            autoRotateAfterStill: 4, // 在鼠标静止操作后恢复自动旋转的时间间隔,默认 3s
-            rotateSensitivity: 5, // 旋转操作的灵敏度，值越大越灵敏.设置为0后无法旋转。[1, 0]只能横向旋转.[0, 1]只能纵向旋转
+            autoRotateAfterStill: 3, // 在鼠标静止操作后恢复自动旋转的时间间隔,默认 3s
+            rotateSensitivity: [1, 0], // 旋转操作的灵敏度，值越大越灵敏.设置为0后无法旋转。[1, 0]只能横向旋转.[0, 1]只能纵向旋转
             targetCoord: [116.457, 40.2527], // 定位到北京
           },
         },
